@@ -41,6 +41,7 @@ in
       alias = nix-notes.html.version;
       extraConfig = ''default_type "text/html";'';
     };
+    "/static/".alias = nix-notes.static + "/";
     "/".alias = (import noteed-github-com {}).html.all + "/";
   };
 }
