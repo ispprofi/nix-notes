@@ -18,16 +18,10 @@ let
     rev = git-notes-version;
     sha256 = "1mx297l6q353934p1rqp8yc60yjhzd6kca5pjwv9m3hq18gbny7r";
   };
-  noteed-github-com = pkgs.fetchFromGitHub {
-    owner = "noteed";
-    repo = "noteed.github.com";
-    rev = noteed-github-com-version;
-    sha256 = "1yfkwzrchc8dhzzi8pxx7rsk8l72hv84p6n40rxam5hm8x5pn22p";
-  };
   nix-notes = import ../site {
     inherit
       nix-notes-version gitcraft-version git-notes-version
-      noteed-github-com-version;
+      noteed-github-com-version; # TODO Replace by noteed-com.
   };
 
 in
@@ -43,6 +37,6 @@ rec {
       extraConfig = ''default_type "text/html";'';
     };
     "/static/".alias = nix-notes.static + "/";
-    "/".alias = (import noteed-github-com {}).html.all + "/";
+    "/".alias = (import ../../noteed.com {}).site + "/";
   } // additional-locations;
 }
