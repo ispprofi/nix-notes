@@ -1,0 +1,17 @@
+name: deployment
+on:
+  push:
+    branches:
+    - next
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Nix
+      uses: cachix/install-nix-action@v10
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - name: Checkout this repository
+      uses: actions/checkout@v2
+    - name: Build the toplevel
+      run: ./build-toplevel.sh
