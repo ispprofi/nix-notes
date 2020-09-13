@@ -2,7 +2,7 @@
 , nix-notes-version ? "not-given"
 , gitcraft-version ? "not-given"
 , git-notes-version ? "not-given"
-, noteed-github-com-version ? "not-given"
+, noteed-com-version ? "not-given"
 }:
 
 let
@@ -48,7 +48,7 @@ footer: © Võ Minh Thu, 2019. Version ${nix-notes-version}.
 [gitcraft](https://github.com/noteed/gitcraft)                    ${gitcraft-version}
 [git-notes](https://github.com/noteed/git-notes)                  ${git-notes-version}
 [nix-notes](https://github.com/noteed/nix-notes)                  ${nix-notes-version}
-[noteed.github.com](https://github.com/noteed/noteed.github.com)  ${noteed-github-com-version}
+[noteed.com](https://github.com/noteed/noteed.com)                ${noteed-com-version}
 ----------------------------------------------------------------  ------------------------
   '';
 
